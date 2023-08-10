@@ -1,0 +1,31 @@
+#!/bin/bash
+  
+
+echo "Setup running"
+
+file_name=config.yaml
+
+config_dir=$1
+
+if [ -d "$config_dir" ]
+then
+ echo "reading config file"
+ config_file=$(ls "$config_dir")
+ echo "$config_file"
+else
+ echo "config dir not found...Creating"
+ mkdir "$config_dir"
+ touch "$config_dir/config.sh"
+fi
+
+user_grp=$2
+
+if ["$user_grp" == "jeniel"]
+then
+ echo "configure the server"
+elif ["$user_grp" == "admin"]
+then
+ echo "admin user"
+else
+ echo "No permissio granted"
+fi
